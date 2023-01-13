@@ -1,0 +1,9 @@
+export {default as About} from './About';
+export {default as Contact} from './Contact';
+export {default as Home} from './Home';
+export {default as Portfolio} from './Portfolio';
+export {default as Service} from './Service';
+export {default as Sidebar} from './Sidebar';
+export {default as SocialIcons} from './SocialIcons';
+export {default as PersonalInfo} from './PersonalInfo';
+export {default as Knowledge} from './Knowledge';
