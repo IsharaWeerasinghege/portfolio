@@ -1,32 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+// eslint-disable-next-line import/no-cycle
+import { Experience, Skills } from './index';
+import { client } from '../client';
 
-const Knowledge = () => {
+function Knowledge() {
+  const [experience, setExperience] = useState();
+  const [skills, setSkills] = useState();
+
+  useEffect(() => {
+    const skillsQuery = '*[_type == "skills"]';
+    const experienceQuery = '*[_type == "experiences"]';
+
+    client.fetch(skillsQuery).then((data) => {
+      setSkills(data);
+    });
+
+    client.fetch(experienceQuery).then((data) => {
+      setExperience(data);
+    });
+  }, []);
   return (
-    <div className="px-12 py-14 bg-neutral-700 flex flex-col md:flex-row items-center">
-      <div className="w-full md:1/2">
-        <h2 className="text-white font-bold text-xl mb-2">Knowledge</h2>
-        <ul className="text-neutral-400 list-disc list-inside">
-          <li>Html</li>
-          <li>Css</li>
-          <li>Javascript</li>
-          <li>React</li>
-          <li>Next Js</li>
-          <li>Tailwind css</li>
-        </ul>
+    <div className="px-4 md:px-12 py-14 bg-neutral-700 flex flex-col md:flex-row items-start">
+      <div className="w-full md:1/2 pr-1">
+        <h2 className="text-white font-bold text-xl mb-3">Skills</h2>
+        <Skills skills={skills} />
       </div>
-      <div className="w-full md:1/2">
-        <h2 className="text-white font-bold text-xl mb-2">Interests</h2>
-        <ul className="text-neutral-400 list-disc list-inside">
-          <li>Mongo Db</li>
-          <li>Typescript</li>
-          <li>Material Ui</li>
-          <li>Redux</li>
-          <li>Chakra Ui</li>
-          <li>Angular</li>
-        </ul>
+      <div className="w-full md:1/2 pl-1">
+        <h2 className="text-white font-bold text-xl mb-3">Experience</h2>
+        <Experience experiences={experience} />
       </div>
     </div>
-  )
+  );
 }
 
-export default Knowledge
+export default Knowledge;
