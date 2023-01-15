@@ -47,7 +47,7 @@ function Portfolio() {
         <div className="flex flex-wrap">
           {filteredWorks?.map((work) => (
             <div key={work.title} className="w-full sm:w-1/2 md:w-1/3 min-w-[300px] ">
-              <div className="bg-neutral-600 m-1 rounded-sm p-2 min-h-[370px] animate-slide-up">
+              <div className="bg-neutral-600 m-1 rounded-sm p-4 min-h-[370px] animate-slide-up">
                 <figure className="bg-neutral-800 relative rounded-sm overflow-hidden">
                   <div className="absolute w-full h-full bg-neutral-400 mix-blend-multiply" />
                   <img

@@ -20,7 +20,7 @@ function Service() {
           {services.map((service, index) => (
             <div
               key={`service${index}`}
-              className="w-full md:w-[300px] bg-neutral-700 md:min-h-[340px] p-8 mx-2 mb-3"
+              className="w-full md:w-[300px] bg-neutral-700 md:min-h-[340px] p-8 mx-2 mb-4"
             >
               <span
                 className="w-14 h-14 bg-neutral-800 flex justify-center items-center rounded-full mb-3 text-neutral-100"
